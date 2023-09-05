@@ -7,7 +7,10 @@ using System;
 public class CoordinateManager : MonoBehaviour
 {
     public int PlayerOnePosition = 1;
-    private Dictionary<string, Vector3> gamePieceLocation = new Dictionary<string, Vector3>();
+    private Dictionary<string, Vector3> gamePieceLocation = new Dictionary<string, Vector3>()
+    {
+        {"CurrentPiecePosition", new Vector3(1.0f, 0.5f, 0.0f)}
+    };
     private Dictionary<string, Vector3> positions = new Dictionary<string, Vector3>
     {
         {"Position 1", new Vector3(1.0f, 0.5f, 0.0f)},
@@ -61,7 +64,7 @@ public class CoordinateManager : MonoBehaviour
         bool End = false;
         while (!End)
         {
-            while (PlayerOnePosition < 10)
+            while (PlayerOnePosition < 40)
             {
                 int i = 0;
                 int diceTotal = random.Next(1, 13);  // Generate a new dice roll inside the loop
@@ -90,7 +93,7 @@ public class CoordinateManager : MonoBehaviour
 
     private void Start()
     {
-        // Assuming you have a GameObject named "MyObject" in your scene
+
         GameObject myObject = GameObject.Find("Player 1 Piece (1)");
 
         // Check if the GameObject was found
